@@ -6,13 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>..::| SKN IEEE Student Branch |::..</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+  <script src="/public/script/firebase.js"></script>
+
 </head>
 
 <body class="bg-gray-300">
   <header class="relative">
     <nav class="container mx-auto flex justify-between items-center absolute z-10 top-0 left-0 right-0 py-4">
-      <div class="text-white font-bold text-xl">SKN IEEE Student Branch</div>
-      <ul class="flex space-x-4">
+      <div class="mx-auto md:mx-0 text-white font-bold text-xl text-center sm:text-left">
+        SKN IEEE Student Branch
+      </div>
+      <ul class="flex space-x-4 hidden md:flex">
         <li><a href="#home" class="text-white hover:underline">Home</a></li>
         <li>
           <a href="#about" class="text-white hover:underline">About Us</a>
@@ -29,7 +35,7 @@
         <li>
           <a href="#membership" class="text-white hover:underline">Membership</a>
         </li>
-        <li><a href="#blog" class="text-white hover:underline">Blog</a></li>
+        <!-- <li><a href="#blog" class="text-white hover:underline">Blog</a></li> -->
         <li>
           <a href="#gallery" class="text-white hover:underline">Gallery</a>
         </li>
@@ -42,7 +48,7 @@
 
   <!-- Hero Section -->
   <section id="hero"
-    class="relative overflow-hidden bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16 h-screen">
+    class="relative overflow-hidden bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16 h-screen px-10">
     <!-- Video Background -->
     <video autoplay="{true}" loop muted class="inset-0 object-cover absolute" id="background-video"
       style="object-fit: cover; width: 100vw; height: 100vh">
@@ -61,23 +67,32 @@
         <p class="text-lg md:text-xl mb-8">
           Your Gateway to Innovation and Technology
         </p>
-        <div>
+        <div class="     xl:space-x-12">
           <a href="#membership"
-            class="bg-white text-blue-500 hover:bg-blue-400 hover:text-white py-2 px-6 rounded-full text-lg md:text-xl font-semibold transition duration-300 ease-in-out transform hover:scale-105">Join
-            Us</a>
+            class=" bg-white text-blue-500 hover:bg-blue-400 hover:text-white py-2 px-6 rounded-full text-lg md:text-xl font-semibold transition duration-300 ease-in-out transform hover:scale-105 ">
+            Join Us
+          </a>
+          <a href="#about"
+            class=" gap-12 text-white-500  hover:border-solid border-2 border-white-600 hover:text-white py-2 px-6 rounded-full text-lg md:text-xl font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+            Learn More
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Us Section -->
-  <section id="about" class="py-36 bg-gray-100">
+  <div class="container mx-auto p-2 bg-gray-100">
+    <h2 class=" text-4xl font-bold mb-6">About Us</h2>
+  </div>
+  <section id="about" class="py-10 bg-gray-100 px-10 md:px-10">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-6">About Us</h2>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <!-- Team Photo (Full Width) -->
         <div class="md:col-span-2 mb-18">
-          <img src="a.jpeg" alt="IEEE Student Branch Team" class="w-full rounded-lg shadow-md" />
+          <img src="public/images/all_members.jpeg" alt="IEEE Student Branch Team"
+            class="w-full rounded-lg shadow-md" />
         </div>
 
         <!-- Information and Milestones (Two Columns) -->
@@ -99,7 +114,22 @@
               to enhance technical/non-technical knowledge and foster
               innovation among our members.
             </p>
+            <br>
+            <br>
+
+            <div class=" xl:space-x-12">
+              <a href="#membership"
+                class=" bg-black text-white hover:bg-blue-400 hover:text-white py-2 px-6 rounded-full text-lg md:text-xl font-semibold transition duration-300 ease-in-out transform hover:scale-105 gap-x-40 ">
+                Become a Member
+              </a>
+              <a href="#domains"
+                class=" bg-black text-white hover:bg-blue-400 hover:text-white py-2 px-6 rounded-full text-lg md:text-xl font-semibold transition duration-300 ease-in-out transform hover:scale-105">
+                Explore Domains
+              </a>
+            </div>
+
           </div>
+
 
           <!-- Column 2: Milestones -->
           <div class="col-span-1">
@@ -135,130 +165,479 @@
                 <p class="text-gray-700">Engaged 50+ passionate members</p>
               </div>
             </div>
+
+          </div>
+
+
+
+
+        </div>
+
+        <br>
+
+
+
+      </div>
+  </section>
+
+
+
+  <!-- Domain Section -->
+  <div class="container mx-auto p-8 " id="domains">
+    <h2 class=" text-4xl font-bold mb-6">SKNISB Domains</h2>
+
+
+
+
+
+
+    <h3 class="text-xl font-semibold text-gray-700 ">
+      Domains in SKNISB
+    </h3>
+    <!-- Stacked Milestone Cards -->
+    <div class="space-y-4">
+      <!-- Domain 1 -->
+      <div class="container mx-auto ">
+
+
+
+
+
+        <div
+          class="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 sm:gap-x-8 sm:grid-cols-2 lg:grid-cols-3 sm:mt-12  sm:text-left">
+          <div class="relative">
+            <div class="absolute -inset-1">
+              <div
+                class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600">
+              </div>
+            </div>
+            <div class="relative  domaincard overflow-hidden  bg-blue-700 shadow-md rounded-xl h-full">
+              <div class="p-9"> <svg width="60px" height="60px" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.4" d="M8 10L6 12L8 14" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path opacity="0.4" d="M16 10L18 12L16 14" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path opacity="0.4" d="M13 9.66992L11 14.33" stroke="#292D32" stroke-width="1.5"
+                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h3 class="mt-6 text-2xl font-bold text-black sm:mt-10">Technical</h3>
+                <p class="mt-6 text-base text-white">
+                  In technical domain, students explore website, application, and backend
+                  development, honing skills in these areas through workshops, projects, and networking opportunities.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="overflow-hidden bg-blue-700 shadow-md rounded-xl">
+            <div class="p-9"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+              </svg>
+
+              <h3 class="mt-6 text-2xl font-bold text-black sm:mt-10">Documentation</h3>
+              <p class="mt-6 text-base text-white">The documentation domain focuses on creating
+                and managing records, reports, and documentation related to technical projects, events and activities.
+              </p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-1">
+              <div
+                class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600">
+              </div>
+            </div>
+            <div class="relative overflow-hidden bg-blue-700 shadow-md rounded-xl h-full">
+              <div class="p-9"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                </svg>
+
+                <h3 class="mt-6 text-2xl font-bold text-black sm:mt-10">Humanitarion</h3>
+                <p class="mt-6 text-base text-white">The humanitarian domain is dedicated to
+                  using technology for social good, including projects and initiatives to address societal challenges
+                  and improve people's lives.</p>
+              </div>
+            </div>
+          </div>
+          <div class="overflow-hidden bg-blue-700 shadow-md rounded-xl">
+            <div class="p-9"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+              </svg>
+
+              <h3 class="mt-6 text-2xl font-bold text-black sm:mt-10">Content and Design</h3>
+              <p class="mt-6 text-base text-white">The Content and Design domain focuses on
+                creating visual and written content for club activities, publications, and events.</p>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-1">
+              <div
+                class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600">
+              </div>
+            </div>
+            <div class="relative overflow-hidden bg-blue-700 shadow-md rounded-xl h-full">
+              <div class="p-9"><svg class=" w-12 h-12 " xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
+                </svg>
+
+                <h3 class="mt-6 text-2xl font-bold text-black sm:mt-10">Membership Development</h3>
+                <p class="mt-6 text-base text-white">The Membership domain is responsible for
+                  managing and expanding the club's member base and fostering a sense of community among its members.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="overflow-hidden bg-blue-700 shadow-md rounded-xl h-full">
+            <div class="p-9"><svg class=" w-12 h-12 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+              </svg>
+
+              <h3 class="mt-6 text-2xl font-bold text-black sm:mt-10">Women in Engineering</h3>
+              <p class="mt-6 text-base text-white">The Women in Engineering domain aims to
+                support and empower female students pursuing engineering careers, fostering gender diversity and
+                inclusion in the field.</p>
+            </div>
           </div>
         </div>
       </div>
+      </section>
+
+
+      <!--Subsribe-->
+      <div class="flex justify-center flex-wrap mt-5">
+        <div class="m-3 py-5 px-5 bg-gray-800 rounded inline-block">
+          <p class="text-white font-bold text-sm">Join our newsletter</p>
+          <div class="flex justify-between mb-3">
+            <input class="mr-3 shadow-inner text-white rounded px-3 text-sm bg-gray-900 border-b border-gray-700"
+              placeholder="Enter your email" type="text">
+            <button class="shadow-lg bg-blue-600 text-white font-bold text-sm rounded px-3 py-2"
+              onclick="window.open('https://www.google.com')">Subscribe</button>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
     </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
   </section>
 
-  <!-- Membership Section -->
-  <section id="membership">
-    <!-- Gradient Background Banner -->
+  <!--Tech Myst Video-->
 
-    <div
-      class="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white py-12 grid h-screen place-items-center text-center"
-      style="max-height: 850px">
-      <div class="container mx-auto text-center">
-        <h2 class="text-5xl font-bold mb-4">SKN IEEE Students Community</h2>
 
-        <p class="text-lg mb-4 text-gray-300">
-          Unlock endless opportunities by joining IEEE! As a student member,
-          you'll access cutting-edge research, <br />
-          network with tech professionals worldwide, enhance your skills, and
-          gain leadership experience.<br />
-          Contribute to global progress while enjoying scholarships and a
-          global community. <br />Join us with an IEEE membership at
-          <u>SMT Kashibai Navle College Of Engineering</u>.
-        </p>
 
-        <p class="text-xl mb-4">Membership Fee: Rs 1000/year</p>
-        <a href="#todo"
-          class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Join
-          Now</a>
-        <p class="mt-4 text-sm">
-          <a href="#todo" class="text-white underline hover:no-underline">Learn More</a>
-        </p>
+  <!--Committee Section-->
+  <div class="container mx-auto p-2 bg-gray-100">
+    <h2 class=" text-4xl font-bold mb-6">SKNISB Committee</h2>
+  </div>
+
+
+  <section id="members" class="p-2 bg-gray-100">
+    <div class="container2 mx-auto container m-auto grid place-items-center">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
+
+        <a href="#member-details-1" class="member-card">
+          <!--<link rel="stylesheet" href="styles.css">-->
+          <div class="member-card-image">
+            <img class="max-w-xs " src="public/images/techmyst 2 round.png" alt="Member 1" />
+          </div>
+
+          <div class="member-card-details  p-4">
+            <h3 class=" text-center text-3xl font-semibold mb-6 ">Sir </h3>
+            <h3 class=" text-center text-2xl font-semibold mb-6 ">Counsellor</h3>
+
+            <div class="grid place-items-center ">
+              <div class="grid ">
+                <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                  onclick="window.open('https://www.google.com')">
+                  in</div>
+              </div>
+            </div>
+
+          </div>
+        </a>
+      </div>
+
+      <!-- Chair-->
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2  gap-x-40 ">
+
+        <a href="#member-details-1" class="member-card">
+          <!--<link rel="stylesheet" href="styles.css">-->
+          <div class="member-card-image">
+            <img class="max-w-xs " src="public/images/techmyst 2 round.png" alt="Member 1" />
+          </div>
+
+          <div class="member-card-details  p-4">
+            <h3 class=" text-center text-3xl font-semibold mb-6 ">Name </h3>
+            <h3 class=" text-center text-2xl font-semibold mb-6 ">Mam 1</h3>
+
+            <div class="grid place-items-center ">
+              <div class="grid ">
+                <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                  onclick="window.open('https://www.google.com')">
+                  in</div>
+              </div>
+            </div>
+
+          </div>
+        </a>
+
+        <!-- Vice Chair-->
+
+        <a href="#member-details-2" class="member-card">
+          <!--<link rel="stylesheet" href="styles.css">-->
+          <div class="member-card-image">
+            <img class="max-w-xs border-radius: 9999px;" src="public/images/techmyst 2 round.png" alt="Member 2" />
+          </div>
+
+          <div class="member-card-details  p-4">
+            <h3 class=" text-center text-3xl font-semibold mb-6">Mrs. Sheetal Kapse <br></h3>
+            <h3 class=" text-center text-2xl font-semibold mb-6 ">Coordinator SKNISB</h3>
+
+            <div class="grid place-items-center ">
+              <div class="grid ">
+                <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                  onclick="window.open('https://www.linkedin.com/in/sheetal-mahalle-701315221')">
+                  in</div>
+              </div>
+            </div>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <br>
+    <div class="container2 mx-auto container m-auto grid place-items-center">
+
+      <!-- Chair-->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-40">
+
+        <a href="#member-details-1" class="member-card">
+          <!--<link rel="stylesheet" href="styles.css">-->
+          <div class="member-card-image">
+            <img class="max-w-xs " src="public/images/IEEE_Chair-round.png" alt="Member 1" />
+          </div>
+
+          <div class="member-card-details  p-4">
+            <h3 class=" text-center text-3xl font-semibold mb-6 ">Atharva Gorde <br> </h3>
+            <h3 class=" text-center text-2xl font-semibold mb-6 ">Chair</h3>
+
+            <div class="grid place-items-center ">
+              <div class="grid ">
+                <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                  onclick="window.open('https://www.google.com')">
+                  in</div>
+              </div>
+            </div>
+
+          </div>
+        </a>
+
+        <!-- Vice Chair-->
+
+        <a href="#member-details-2" class="member-card">
+          <!--<link rel="stylesheet" href="styles.css">-->
+          <div class="member-card-image">
+            <img class="max-w-xs" src="public/images/IEEE Vice-chair round.png" alt="Member 2" />
+          </div>
+
+          <div class="member-card-details  p-4">
+            <h3 class=" text-center text-3xl font-semibold mb-6">Akansha Vaidya <br></h3>
+            <h3 class=" text-center text-2xl font-semibold mb-6 ">Vice-Chair</h3>
+
+            <div class="grid place-items-center ">
+              <div class="grid ">
+                <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                  onclick="window.open('https://www.google.com')">
+                  in</div>
+              </div>
+            </div>
+
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
+
+
+  <!-- Treasurer-->
+  <div class="container2 mx-auto container m-auto grid place-items-center p-8 bg-gray-100">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-40">
+
+      <a href="#member-details-3" class="member-card">
+        <!--<link rel="stylesheet" href="styles.css">-->
+        <div class="member-card-image">
+          <img class="max-w-xs" src="public/images/techmyst 2 round.png" alt="Member 3" />
+        </div>
+
+        <div class="member-card-details  p-4">
+          <h3 class=" text-3xl font-semibold mb-6 text-center">Jay Chavan <br></h3>
+          <h3 class=" text-center text-2xl font-semibold mb-6 ">Treasurer</h3>
+
+          <div class="grid place-items-center ">
+            <div class="grid ">
+              <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                onclick="window.open('https://www.google.com')">in</div>
+            </div>
+          </div>
+
+        </div>
+      </a>
+
+      <!-- Secretary-->
+
+      <a href="#member-details-4" class="member-card">
+        <!--<link rel="stylesheet" href="styles.css">-->
+        <div class="member-card-image">
+          <img class="h-auto max-w-xs" src="public/images/techmyst 2 round.png" alt="Member 4" />
+          <!--<div class ="overlay-text"> Your text here </div> -->
+        </div>
+        <div class="member-card-details  p-4">
+          <h3 class=" text-center text-3xl font-semibold mb-6">Abhijeet Gavali <br></h3>
+          <h3 class=" text-center text-2xl font-semibold mb-6 ">Web-Master</h3>
+
+          <div class="grid place-items-center ">
+            <div class="grid ">
+              <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                onclick="window.open('https://www.google.com')">in</div>
+            </div>
+          </div>
+
+        </div>
+      </a>
+
+      <!-- Web Master-->
+
+      <a href="#member-details-5" class="member-card">
+        <!--<link rel="stylesheet" href="styles.css">-->
+        <div class="member-card-image">
+          <img class="h-auto max-w-xs" src="public/images/techmyst 2 round.png" alt="Member 5" />
+          <!--<div class ="overlay-text"> Your text here </div> -->
+        </div>
+        <div class="member-card-details  p-4">
+          <h3 class=" text-center text-3xl font-semibold mb-6">Chetan Bagal</h3>
+          <h3 class=" text-center text-2xl font-semibold mb-6 ">Secretary</h3>
+
+          <div class="grid place-items-center ">
+            <div class="grid ">
+              <div class=" grid text-5xl font-bold text-blue rounded " style="background-color:#0072b1 ;"
+                onclick="window.open('https://www.google.com')">in</div>
+            </div>
+          </div>
+
+        </div>
+      </a>
+
+      <!-- Add more member cards as needed -->
+    </div>
+  </div>
+  </section>
+
   <!-- Event Cards Section -->
-  <section id="events" class="py-8">
+  <!-- <section id="events" class="p-8">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Events</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Event Cards -->
-        <a href="#event-details-1" class="event-card">
-          <!--<link rel="stylesheet" href="styles.css">-->
+      <h2 class="text-3xl font-bold mb-6"> Upcoming Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style="align-items: stretch"> -->
+  <!-- Event Cards -->
+
+
+
+  <!-- <a href="#event-details-1" class="event-card">
+          
           <div class="event-card-image">
-            <img src="ev1.png" alt="Event 1" />
-            <!--<div class ="overlay-text"> Your text here </div> -->
+            <img src="/public/images/ev1.png" alt="Event 1" />
+            
           </div>
           <div class="event-card-details bg-white p-4">
             <h3 class="text-lg font-semibold mb-2">Industrial Visit</h3>
-            <p class="text-gray-600 text-sm mb-2"><b>Date:</b> 23<sup>th</th></sup> September </p>
-            <p class="text-gray-600 text-sm"><b>Location:</b> Prmius Techsystem Pvt Ltd <br>
-              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBaner </p>
+            <p class="text-gray-600 text-sm mb-2">
+              <b>Date:</b> 23<sup>th</sup> September 2023
+            </p>
+            <p class="text-gray-600 text-sm">
+              <b>Location:</b> PRIMUS HQ”, Survey No 34/3, Plot No 4,5,6,
+              Rohan Seher Ln, Pan Card Club Rd, opp. to ABIL Imperia Complex,
+              Baner, Pune, Maharashtra 411045
+            </p>
           </div>
         </a>
 
         <a href="#event-details-2" class="event-card">
           <div class="event-card-image">
-            <img src="ARS 5.jpg" alt="Event 2" />
-
+            <img src="/public/images/ARS 5.jpg" alt="Event 2" />
           </div>
+
           <div class="event-card-details bg-white p-4">
-            <h3 class="text-lg font-semibold mb-2">Discover Social AR with Meta Spark:<br>Beginner's Workshop</h3>
-            <p class="text-gray-600 text-sm mb-2"><b>Date:</b> 22<sup>nd</sup> August</p>
-            <p class="text-gray-600 text-sm"><b>Location:</b> SKNCOE</p>
+            <h3 class="text-lg font-semibold mb-2">
+              Discover Social AR with Meta Spark:<br />Beginner's Worksop
+            </h3>
+            <p class="text-gray-600 text-sm mb-2">
+              <b>Date:</b> 22<sup>nd</sup> August 2023
+            </p>
+            <p class="text-gray-600 text-sm">
+              <b>Location:</b> Class No 1, Computer building, Sinhgad
+              Institutes's SMT. KASHIBAI NAVALE COLLEGE OF ENGINEERING SURVEY
+              NO. 44/1, OFF SINHGAD ROAD, VADGAON BK. PUNE, MAHARASHTRA,
+              411041
+            </p>
           </div>
         </a>
 
         <a href="#event-details-3" class="event-card">
           <div class="event-card-image">
-            <img src="techmyst 2.png" alt="Event 3" />
+            <img src="/public/images/techmyst 2.png" alt="Event 3" />
           </div>
           <div class="event-card-details bg-white p-4">
-            <h3 class="text-lg font-semibold mb-2">Tech Myst</h3>
-            <p class="text-gray-600 text-sm mb-2"><b>Date:</b> 24<sup>th</sup> April</p>
-            <p class="text-gray-600 text-sm"><b>Location:</b> SKNCOE</p>
-          </div>
-        </a>
-
-        <!-- Add more event cards as needed -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <!-- Projects Section -->
-  <section id="projects" class="py-8 bg-gray-100">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Our Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project 1: Techmyst Event Website -->
-        <div class="project-card bg-white shadow-md rounded-lg overflow-hidden">
-          <div class="project-image">
-            <img src="new1.png" alt="Techmyst Event Website" />
-          </div>
-          <div class="project-details p-4">
-            <h3 class="text-lg font-semibold mb-2">Techmyst Event Website</h3>
-            <p class="text-gray-600 mb-4">
-              A responsive website for promoting and managing Techmyst events.
-            </p>
-            <a href="https://techmyst.org/" class="text-blue-500 hover:underline">Explore</a>
-          </div>
-        </div>
-
-        <!-- Project 2: Attendance Management App -->
-        <div class="project-card bg-white shadow-md rounded-lg overflow-hidden">
-          <div class="project-image">
-            <img src="https://ubsapp.com/wp-content/uploads/2022/03/attendance_management-copy.png"
-              alt="Attendance Management App" />
-          </div>
-          <div class="project-details p-4">
             <h3 class="text-lg font-semibold mb-2">
-              Attendance Management App
+              Tech Myst - Flagship event of SKNISB
             </h3>
-            <p class="text-gray-600 mb-4">
-              An app to efficiently manage and record attendance for events
-              and classes.
+            <p class="text-gray-600 text-sm mb-2">
+              <b>Date:</b> 24<sup>th</sup> April 2022
             </p>
-            <a href="#project-details-2" class="text-blue-500 hover:underline">Coming soon...</a>
+            <p class="text-gray-600 text-sm">
+              <b>Location:</b> Sinhgad Institutes's SMT. KASHIBAI NAVALE
+              COLLEGE OF ENGINEERING SURVEY NO. 44/1, OFF SINHGAD ROAD,
+              VADGAON BK. PUNE, MAHARASHTRA, 411041
+            </p>
           </div>
-        </div>
+        </a> -->
 
-        <!-- Project 3: Discussion Forum -->
+  <!-- Add more event cards as needed -->
+  <!-- </div>
+    </div>
+  </section> -->
+
+  <!-- Projects Section -->
+  <!-- Projects Section -->
+  <section id="projects" class="p-8">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Project 1: Discussion Forum -->
         <div class="project-card bg-white shadow-md rounded-lg overflow-hidden">
           <div class="project-image">
             <img
@@ -274,21 +653,93 @@
             <a href="#project-details-3" class="text-blue-500 hover:underline">Coming soon...</a>
           </div>
         </div>
+        <!-- Project 2: App and Website -->
+        <div class="project-card bg-white shadow-md rounded-lg overflow-hidden">
+          <div class="project-image">
+            <img src="public/images/Webdev.jpg" alt="Techmyst Event Website" />
+          </div>
+          <div class="project-details p-4">
+            <h3 class="text-lg font-semibold mb-2">App and Web</h3>
+            <p class="text-gray-600 mb-4">
+              A responsive website for promoting and managing Techmyst events.
+              An app to efficiently manage and record attendance for events
+              and classes.
+            </p>
+            <a href="https://techmyst.org/" target="_blank" class="text-blue-500 hover:underline">Explore</a>
+          </div>
+        </div>
+
+        <!-- Project 2: Research in IOT -->
+        <div class="project-card bg-white shadow-md rounded-lg overflow-hidden">
+          <div class="project-image">
+            <img src="public/images/iot.jpg" alt="Attendance Management App" />
+          </div>
+          <div class="project-details p-4">
+            <h3 class="text-lg font-semibold mb-2">
+              Research in IOT
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Research in IoT (Internet of Things) involves exploring and studying IoT
+              technologies and applications, often through projects and collaboration with industry and academia.
+            </p>
+            <a href="#project-details-2" class="text-blue-500 hover:underline">Coming soon...</a>
+          </div>
+        </div>
+
+
 
         <!-- Add more project cards as needed -->
       </div>
     </div>
   </section>
 
+
+  <!-- Membership Section -->
+  <section id="membership">
+    <!-- Gradient Background Banner -->
+
+    <div
+      class="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white py-12 grid h-screen place-items-center text-center px-4"
+      style="max-height: 850px">
+      <div class="container mx-auto text-center">
+        <h2 class="text-xl sm:text-5xl font-bold mb-4">
+          SKN IEEE Students Community
+        </h2>
+
+        <p class="text sm:text-lg mb-4 text-gray-300">
+          Unlock endless opportunities by joining IEEE! As a student member,
+          you'll access cutting-edge research, <br />
+          network with tech professionals worldwide, enhance your skills, and
+          gain leadership experience.<br />
+          Contribute to global progress while enjoying scholarships and a
+          global community. <br />Join us with an IEEE membership at
+          <u>SMT Kashibai Navle College Of Engineering</u>.
+        </p>
+
+        <p class="text-xl mb-4">Membership Fee: Rs 1000/year</p>
+        <a href="https://forms.gle/t9tm8eytPkMtjKNe7" target="_blank"
+          class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Join
+          Now</a>
+        <!-- <p class="mt-4 text-sm">
+              <a href="#todo" class="text-white underline hover:no-underline"
+                >Learn More</a
+              >
+            </p> -->
+      </div>
+    </div>
+  </section>
+
+
+
   <!-- Resources Section -->
   <!-- Resources Section -->
-  <section id="resources" class="py-8 bg-gray-100">
+  <section id="resources" class="py-12 px-8  pb-20">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold mb-6">Resources</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Resource 1: Technical Documents -->
         <div
-          class="resource-card bg-gradient-to-br from-blue-400 to-purple-500 text-white shadow-md rounded-lg overflow-hidden flex">
+          class="resource-card bg-gradient-to-br from-blue-400 to-purple-500 text-white shadow-md rounded-lg overflow-hidden flex flex-col sm:flex-row">
           <div class="resource-icon p-4">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz9QEXTCjh7dZ4tO1wbnexZMbQWTiKO_SlYQ9HxAlHlwNaLSFW3ihC1IWliR3b0NY4leo&usqp=CAU"
@@ -306,7 +757,7 @@
 
         <!-- Resource 2: Tutorials -->
         <div
-          class="resource-card bg-gradient-to-br from-green-400 to-blue-500 text-white shadow-md rounded-lg overflow-hidden flex">
+          class="resource-card bg-gradient-to-br from-green-400 to-blue-500 text-white shadow-md rounded-lg overflow-hidden flex flex-col sm:flex-row">
           <div class="resource-icon p-4">
             <img src="https://cdn-icons-png.flaticon.com/512/4008/4008703.png" alt="Tutorials" />
           </div>
@@ -322,7 +773,7 @@
 
         <!-- Resource 3: Webinars -->
         <div
-          class="resource-card bg-gradient-to-br from-red-400 to-pink-500 text-white shadow-md rounded-lg overflow-hidden flex">
+          class="resource-card bg-gradient-to-br from-red-400 to-pink-500 text-white shadow-md rounded-lg overflow-hidden flex flex-col sm:flex-row">
           <div class="resource-icon p-4">
             <img src="https://cdn-icons-png.flaticon.com/512/2038/2038315.png" alt="Webinars" />
           </div>
@@ -396,20 +847,22 @@
       </div>
     </section>-->
 
+
+
   <!-- Gallery Section -->
   <!-- ... (previous code) -->
 
-  <section id="gallery" class="py-8">
+  <section id="gallery" class="py-8 bg-gray-100">
     <div class="container mx-auto">
-      <h2 class="text-2xl font-bold">Photo Gallery</h2>
+      <h2 class="text-2xl font-bold mb-8">Photo Gallery</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         <!-- Placeholder images from Unsplash (Replace with your own) -->
-        <img src="pic1.jpeg" alt="Image 1" />
-        <img src="pic2.jpeg" alt="Image 2" />
-        <img src="pic3.jpeg" alt="Image 3" />
-        <img src="pic4.jpeg" alt="Image 4" />
-        <img src="picg.jpeg" alt="Image 5" />
-        <img src="mam.jpeg" alt="Image 6" />
+        <img src="/public/images/pic1.jpeg" alt="Image 1" />
+        <img src="/public/images/pic2.jpeg" alt="Image 2" />
+        <img src="/public/images/pic3.jpeg" alt="Image 3" />
+        <img src="/public/images/pic4.jpeg" alt="Image 4" />
+        <img src="/public/images/picg.jpeg" alt="Image 5" />
+        <img src="/public/images/mam.jpeg" alt="Image 6" />
       </div>
     </div>
   </section>
@@ -417,7 +870,7 @@
   <!-- Contact Section -->
   <section id="contact" class="py-8">
     <div class="container mx-auto px-4">
-      <form action="#" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
         <p class="my-4">
           If you have any questions or inquiries, feel free to contact us...
@@ -449,7 +902,7 @@
         <div class="flex items-center justify-between">
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button">
+            type="button" onclick="contactSubmit()">
             Send
           </button>
         </div>
@@ -457,12 +910,69 @@
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-white p-4 text-center">
-    <p>&copy; 2023 IEEE Student Branch - Your College Name</p>
+  <!--Footer container-->
+  <footer
+    class="flex flex-col items-center bg-neutral-900 text-center text-white bg-gray-900 text-white p-4 text-center">
+    <div class="container px-6 pt-6">
+      <div class="mb-6 flex justify-center">
+        <a href="#!" type="button" onclick="window.open('https://www.google.com')"
+          class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+          data-te-ripple-init data-te-ripple-color="light">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+          </svg>
+        </a>
+
+
+
+        <a href="mailto:" type="button"
+          class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+          data-te-ripple-init data-te-ripple-color="light">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M7 11v2.4h3.97c-.16 1.029-1.2 3.02-3.97 3.02-2.39 0-4.34-1.979-4.34-4.42 0-2.44 1.95-4.42 4.34-4.42 1.36 0 2.27.58 2.79 1.08l1.9-1.83c-1.22-1.14-2.8-1.83-4.69-1.83-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.721-2.84 6.721-6.84 0-.46-.051-.81-.111-1.16h-6.61zm0 0 17 2h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2z"
+              fill-rule="evenodd" clip-rule="evenodd" />
+          </svg>
+        </a>
+
+        <a href="#!" type="button" onclick="window.open('http://www.instagram.com/sknisb')"
+          class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+          data-te-ripple-init data-te-ripple-color="light">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+
+        <a href="#!" type="button" onclick="window.open('https://www.linkedin.com/company/skn-ieee-student-branch/')"
+          class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+          data-te-ripple-init data-te-ripple-color="light">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+          </svg>
+        </a>
+
+        <a href="#!" type="button" onclick="window.open('https://github.com/skn-isb')"
+          class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+          data-te-ripple-init data-te-ripple-color="light">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+      </div>
+      <p>&copy; 2023 IEEE Student Branch - SKNCOE</p>
+    </div>
+
+
+
+
   </footer>
 
-  <script src="scripts.js"></script>
-  <!-- Link to your JavaScript file -->
+
+
 </body>
 
 </html>
